@@ -3,28 +3,37 @@ import Header from "@/components/Header";
 import MemeGenerator from "@/components/MemeGenerator";
 import Navbar from "@/components/navbar";
 import ReelSyncUploader from "@/components/ReelSyncUploader";
+import RobotScrollScene from "@/components/robot-scroll-screen";
+import EnhancedScriptToVideo from "@/components/ScriptToVideoSection";
 import ScriptToVideoSection from "@/components/ScriptToVideoSection";
+import ThumbnailGenerator from "@/components/ThumbnailGenerator";
+import EnhancedVideoCarousel from "@/components/video-carousel";
 import VideoCarousel from "@/components/videoCarousel";
 
 const Page = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-900 to-black text-white animate-fadeIn">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-950 via-gray-500 to-black text-white animate-fadeIn">
       {/* Navbar Space */}
       {/* <header className="h-20 bg-gradient-to-r from-blue-900/80 via-blue-600/80 to-blue-900/80 backdrop-blur-lg shadow-2xl rounded-b-3xl border-b border-blue-500/50 flex items-center justify-center px-10 animate-fadeIn">
         <div className="w-full max-w-6xl flex justify-center">
           <Navbar />
         </div>
       </header> */}
+      {/* <RobotScrollScene> */}
       <Header />
 
-      <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lime-500 via-cyan-400 to-green-700 text-center my-16 animate-fadeIn drop-shadow-lg">
+      <div className="text-7xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lime-500 via-cyan-400 to-green-700 text-center my-16 animate-fadeIn drop-shadow-lg mb-5 mt-20">
         <DraggableText text="Dive into Absolute AI!  " />
+      </div>
+      <br />
+      <div className="text-2xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lime-500 via-cyan-400 to-green-700 text-center my-16 animate-fadeIn drop-shadow-lg mb-1">
+        A one stop solution for everything.
       </div>
 
       {/* Video Carousel Placeholder */}
 
       <section
-        className="relative w-[85%] max-w-6xl h-[600px] flex items-center justify-center mr-30 my-16 animate-fadeInUp rounded-3xl mx-auto overflow-hidden shadow-[0px_0px_40px_rgba(0,255,255,0.3)] border border-lime-500 backdrop-blur-lg p-15
+        className="relative w-[90%] max-w-6xl h-[650px] flex items-center justify-center mr-40 my-20 animate-fadeInUp rounded-3xl mx-auto overflow-hidden shadow-[0px_0px_40px_rgba(0,255,255,0.3)] border border-lime-500 backdrop-blur-lg p-15
   transition-all duration-500 hover:shadow-[0px_0px_60px_rgba(0,255,255,0.5)] scale-100 hover:scale-[1.02]"
       >
         {/* Inner Glow & Radial Light */}
@@ -34,17 +43,8 @@ const Page = () => {
         >
           {/* Particle Effect */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-10 left-20 w-10 h-10 bg-purple-300 rounded-full opacity-40 animate-ping"></div>
-            <div className="absolute bottom-10 right-20 w-14 h-14 bg-orange-300 rounded-full opacity-30 animate-ping"></div>
-
             {/* Video Carousel */}
-            <VideoCarousel
-              videos={[
-                "/videos/oLuR0kHPgQO5fzdKx5DlugYjb0.mp4",
-                "/videos/uOGQQ7pVUTdt8kE55DBzSoaTPw.mp4",
-                "/videos/eJWPLw5oOX16bDOw9jWpFxAjSc.mp4",
-              ]}
-            />
+            <EnhancedVideoCarousel />;
           </div>
         </div>
       </section>
@@ -53,9 +53,18 @@ const Page = () => {
       <main className="flex flex-col items-center w-full min-h-screen bg-black px-6 py-14">
         {/* Full-width ScriptToVideoSection */}
         <div className="w-full">
-          <ScriptToVideoSection />
+          <main className="min-h-screen bg-gradient-to-br from-black via-blue-900 to-black py-12">
+            <div className="container mx-auto px-4">
+              <EnhancedScriptToVideo
+                script="Generate a futuristic cityscape with flying cars, holographic billboards, and neon lights reflecting off glass skyscrapers. The scene should be set at night with a cyberpunk aesthetic."
+                videoSrc="/videos/hero.mp4"
+                staticVideoSrc="/videos/frame.mp4"
+              />
+            </div>
+          </main>
           <ReelSyncUploader />
           <MemeGenerator />
+          <ThumbnailGenerator />
         </div>
 
         {/* Features Section */}
@@ -111,6 +120,7 @@ const Page = () => {
           </div>
         </div>
       </main>
+      {/* </RobotScrollScene> */}
     </div>
   );
 };
