@@ -69,10 +69,10 @@ import EnhancedCinemaReel from "./cinema-reel";
 
 export default function ReelSyncUploader() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-black via-blue-900/20 to-black text-white overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-transparent   text-white overflow-hidden">
       {/* Floating Nebula Background */}
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(9,9,121,0.3)_0%,_rgba(2,0,36,0.9)_100%)] blur-2xl"
+        className="absolute inset-0  blur-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
@@ -94,20 +94,28 @@ export default function ReelSyncUploader() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.08 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative w-150 h-75 bg-black/30 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 overflow-hidden mb-10 mt-20"
+        className="relative w-150 h-75 bg-black/30 backdrop-blur-lg rounded-3xl 
+  shadow-[0px_0px_100px_rgba(173,97,255,0.7)] border border-[#9b5de5]/40 
+  overflow-hidden mb-10 mt-20"
       >
+        {/* Background Glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(173,97,255,0.3),_transparent)] z-0" />
+
+        {/* Video */}
         <motion.video
-          src="/videos/smallHero.mp4"
+          src="/videos/videoplayback (2).mp4"
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover rounded-3xl brightness-125 contrast-125"
+          className="w-full h-full object-cover rounded-3xl brightness-125 contrast-110 
+    shadow-[0px_0px_100px_rgba(173,97,255,0.8)] scale-100 hover:scale-[1.04] transition-all duration-500"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent" />
+        {/* Inner Glow Effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#9b5de5]/20 via-transparent to-[#ff8c00]/10" />
       </motion.div>
 
       <EnhancedCinemaReel />
@@ -167,12 +175,12 @@ export default function ReelSyncUploader() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 1.8 }}
       >
-        Upload your <span className="text-blue-400 font-semibold">music</span>{" "}
-        and <span className="text-indigo-400 font-semibold">clips</span>—our{" "}
-        <span className="text-pink-400 font-bold">AI syncs</span> them to the
+        Upload your <span className="text-blue-100 font-semibold">music</span>{" "}
+        and <span className="text-indigo-100 font-semibold">clips</span>—our{" "}
+        <span className="text-pink-100 font-bold">AI syncs</span> them to the
         beat for a{" "}
-        <span className="text-cyan-300 font-extrabold">seamless</span> edit. Let
-        the <span className="text-purple-500 font-bold">future</span> of editing
+        <span className="text-cyan-100 font-extrabold">seamless</span> edit. Let
+        the <span className="text-purple-100 font-bold">future</span> of editing
         begin.
       </motion.p>
     </div>

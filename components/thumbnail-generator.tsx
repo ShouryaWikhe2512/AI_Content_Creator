@@ -141,7 +141,7 @@ export default function ThumbnailGenerator() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="w-full h-screen flex flex-col justify-center items-center p-8 bg-gradient-to-br from-black via-blue-900 to-black relative overflow-hidden"
+      className="w-full h-screen flex flex-col justify-center items-center p-8 bg-gradient-to-b from-[#17002f] via-[#1a002f] to-[#1a002f] relative overflow-hidden"
     >
       {/* Background Glow Effect */}
       <div className="absolute inset-0  blur-3xl opacity-30" />
@@ -165,7 +165,7 @@ export default function ThumbnailGenerator() {
             AI Script
           </h3>
           <div className="h-72 overflow-y-auto text-gray-300 font-mono text-sm relative border border-gray-700 rounded-lg p-4 bg-gray-900/50 shadow-inner">
-            <TypingAnimation text="# AI Thumbnail Generation Script\n\n1. Analyze input content\n2. Identify key visual elements\n3. Generate composition layout\n4. Apply style transfer algorithm\n5. Enhance visual hierarchy\n6. Optimize for target platform\n7. Render final thumbnail\n\nStatus: Ready to generate" />
+            <TypingAnimation text="Create a dynamic and futuristic thumbnail for an ethical hacking course. The design should feature a dark, high-tech background with digital code, circuit patterns, and subtle glitch effects. Include a silhouette of a hacker in a hoodie working on an open laptop displaying binary code or cybersecurity icons. Use neon blue and green accents for contrast and modern appeal. Overlay bold, high-contrast text such as 'Learn Hacking' and 'Ethical Hacking Course' in a sleek, futuristic font. The overall style should be edgy, realistic, and visually engaging to attract tech-savvy learners." />
           </div>
         </motion.div>
 
@@ -203,7 +203,7 @@ export default function ThumbnailGenerator() {
               )}
               {showThumbnail && (
                 <PixelatedImage
-                  src="/IMG-20230831-WA0024.jpg"
+                  src="/thumbnail2.jpg"
                   alt="Generated Thumbnail"
                 />
               )}

@@ -1,5 +1,4 @@
 // "use client";
-<<<<<<< HEAD
 
 // import { motion } from "framer-motion";
 // import { useState } from "react";
@@ -27,8 +26,6 @@
 // };
 
 // export default Page;
-=======
-
 // import { motion } from "framer-motion";
 // import { useState } from "react";
 
@@ -88,4 +85,3 @@ export default function Home() {
     </main>
   );
 }
->>>>>>> 0c4958e (Updated changes)

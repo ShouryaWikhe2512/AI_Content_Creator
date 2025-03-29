@@ -474,29 +474,6 @@ export default function VideoSyncPage() {
                   <span>Download Processed Video</span>
                 </button>
               </div>
-
-              {/* Video Preview Section
-              {uploadStatus.videoUrl && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-xl shadow-lg p-6"
-                >
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                    Video Preview
-                  </h2>
-                  <div className="relative aspect-video w-full max-w-3xl mx-auto">
-                    <video
-                      src={uploadStatus.videoUrl}
-                      controls
-                      className="w-full h-full rounded-lg"
-                      playsInline
-                    >
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </motion.div>
-              )} */}
             </motion.div>
           )}
         </div>

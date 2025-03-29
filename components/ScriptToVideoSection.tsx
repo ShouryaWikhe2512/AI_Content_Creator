@@ -255,14 +255,14 @@ export default function EnhancedScriptToVideo({
   return (
     <div
       ref={containerRef}
-      className="max-w-6xl mx-auto p-8 bg-gray-900/80 backdrop-blur-md rounded-xl border border-gray-800"
+      className="max-w-6xl mx-auto p-8   rounded-xl border bg-transparent  border-gray-800"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-transparent ">
         {/* Left side - Script input */}
         <div className="relative">
           {/* AI Script Label */}
           <motion.div
-            className="absolute -top-4 -left-4 z-10 bg-black/80 backdrop-blur-md px-4 py-2 rounded-lg border border-cyan-500"
+            className="absolute -top-4 -left-4 z-10 bg-transparent  backdrop-blur-md px-4 py-2 rounded-lg border border-cyan-500"
             animate={{
               y: [0, -5, 0],
               boxShadow: [

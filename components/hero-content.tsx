@@ -35,12 +35,12 @@ export default function HeroContent() {
     <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8 mt-27">
       <h1
         ref={headingRef}
-        className="mx-auto max-w-4xl text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl"
+        className="mx-auto max-w-6xl text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl"
       >
-        <span className="block text-white">AI-Powered!</span>
+        <span className="block text-white ">AI-Powered!</span>
+        <br />
         <span className="block text-purple-200">
-          {" "}
-          Creativity: Edit, Generate & Analyze!
+          Creativity: Learn, Create & Grow!
         </span>
       </h1>
 
