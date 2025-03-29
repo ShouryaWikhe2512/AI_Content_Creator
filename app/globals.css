@@ -112,6 +112,14 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
+/* 3D card effect */
+.feature-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -120,3 +128,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(132,204,22,0.6); }
+  100% { box-shadow: 0 0 20px rgba(132,204,22,1); }
+}
+
+
