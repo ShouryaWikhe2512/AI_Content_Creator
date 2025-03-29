@@ -1,44 +1,5 @@
-<<<<<<< HEAD
-import EnhancedCinemaReel from "@/components/cinema-reel";
-
-export default function EnhancedPage() {
-  return (
-    <main className="min-h-screen bg-gray-900">
-      <div className="container mx-auto py-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-amber-200 mb-8">
-          Enhanced Cinema Reel Animation
-        </h1>
-        <p className="text-center text-amber-200/80 max-w-2xl mx-auto mb-12">
-          An immersive cinema reel with advanced effects, smooth transitions,
-          and interactive controls.
-        </p>
-
-        <EnhancedCinemaReel />
-      </div>
-    </main>
-=======
-// import EnhancedCinemaReel from "@/components/cinema-reel";
-
-// export default function EnhancedPage() {
-//   return (
-//     <main className="min-h-screen bg-gray-900">
-//       <div className="container mx-auto py-12">
-//         <h1 className="text-3xl md:text-4xl font-bold text-center text-amber-200 mb-8">
-//           Enhanced Cinema Reel Animation
-//         </h1>
-//         <p className="text-center text-amber-200/80 max-w-2xl mx-auto mb-12">
-//           An immersive cinema reel with advanced effects, smooth transitions,
-//           and interactive controls.
-//         </p>
-
-//         <EnhancedCinemaReel />
-//       </div>
-//     </main>
-//   );
-// }
-
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 
@@ -47,6 +8,7 @@ interface UploadStatus {
   progress: number;
   message: string;
   jobId?: string;
+  videoUrl?: string;
 }
 
 export default function VideoSyncPage() {
@@ -108,6 +70,11 @@ export default function VideoSyncPage() {
     if (!audioFile || videoFiles.length === 0) {
       setError("Please upload both audio and video files");
       return;
+    }
+
+    // Cleanup previous video URL if exists
+    if (uploadStatus.videoUrl) {
+      window.URL.revokeObjectURL(uploadStatus.videoUrl);
     }
 
     try {
@@ -224,6 +191,14 @@ export default function VideoSyncPage() {
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
+
+      // Update the video URL in state for preview
+      setUploadStatus((prev) => ({
+        ...prev,
+        videoUrl: url,
+      }));
+
+      // Create download link
       const a = document.createElement("a");
       a.href = url;
       a.download = "synchronized-video.mp4";
@@ -235,6 +210,15 @@ export default function VideoSyncPage() {
       setError(err instanceof Error ? err.message : "Failed to download video");
     }
   };
+
+  // Cleanup video URL when component unmounts or when starting new upload
+  useEffect(() => {
+    return () => {
+      if (uploadStatus.videoUrl) {
+        window.URL.revokeObjectURL(uploadStatus.videoUrl);
+      }
+    };
+  }, [uploadStatus.videoUrl]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -462,37 +446,61 @@ export default function VideoSyncPage() {
             )}
           </AnimatePresence>
 
-          {/* Download Button */}
+          {/* Download Button and Preview Section */}
           {uploadStatus.status === "completed" && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex justify-center"
+              className="space-y-6"
             >
-              <button
-                onClick={handleDownload}
-                className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium shadow-md hover:bg-green-700 transition-all duration-200 flex items-center space-x-2"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <div className="flex justify-center">
+                <button
+                  onClick={handleDownload}
+                  className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium shadow-md hover:bg-green-700 transition-all duration-200 flex items-center space-x-2"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                  />
-                </svg>
-                <span>Download Processed Video</span>
-              </button>
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    />
+                  </svg>
+                  <span>Download Processed Video</span>
+                </button>
+              </div>
+
+              {/* Video Preview Section
+              {uploadStatus.videoUrl && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-xl shadow-lg p-6"
+                >
+                  <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                    Video Preview
+                  </h2>
+                  <div className="relative aspect-video w-full max-w-3xl mx-auto">
+                    <video
+                      src={uploadStatus.videoUrl}
+                      controls
+                      className="w-full h-full rounded-lg"
+                      playsInline
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </motion.div>
+              )} */}
             </motion.div>
           )}
         </div>
       </div>
     </div>
->>>>>>> 0c4958e (Updated changes)
   );
 }
