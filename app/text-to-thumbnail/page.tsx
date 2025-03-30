@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,12 +13,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import SearchIcon from "@mui/icons-material/Search";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import GetAppIcon from "@mui/icons-material/GetApp";
-import ImageIcon from "@mui/icons-material/Image";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 // Component to simulate pixel reveal animation
 const PixelatedImage = ({ src, alt }: { src: string; alt: string }) => {
@@ -43,29 +41,31 @@ const PixelatedImage = ({ src, alt }: { src: string; alt: string }) => {
   );
 };
 
-const TextToImage = () => {
+const TextToThumbnail = () => {
   const router = useRouter();
   const [prompt, setPrompt] = useState("");
-  const [style, setStyle] = useState("Realistic");
+  const [style, setStyle] = useState("Professional");
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const styles = [
-    "Realistic",
+  const thumbnailStyles = [
+    "Professional",
+    "Modern",
+    "Cartoon",
     "3D Render",
-    "Anime",
-    "Digital Art",
-    "Oil Painting",
-    "Watercolor",
-    "Pixar",
-    "Fantasy",
-    "Cyberpunk",
+    "Futuristic",
+    "Minimalist",
+    "Elegant",
+    "Bold",
+    "Grunge",
+    "Hand-Drawn",
+    "Vintage",
   ];
 
-  async function generateImage() {
+  async function generateThumbnail() {
     if (!prompt.trim()) {
-      setError("Please enter a prompt.");
+      setError("Please enter a description for your thumbnail.");
       return;
     }
 
@@ -75,20 +75,21 @@ const TextToImage = () => {
 
     try {
       // Create the combined prompt with style
-      const combinedPrompt = `${prompt.trim()}, ${style} style`;
+      const combinedPrompt = `${prompt.trim()}, ${style} style YouTube thumbnail`;
 
-      // Send the combined prompt to the API
-      const response = await fetch("/api/generateImage", {
+      // Send the request to the API
+      const response = await fetch("/api/generateThumbnail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          prompt: combinedPrompt,
+          title: prompt,
+          style: style,
         }),
       });
 
       const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to generate image");
+      if (!response.ok || !data.imageUrl) {
+        throw new Error(data.error || "Failed to generate thumbnail");
       }
 
       setImageUrl(data.imageUrl);
@@ -111,25 +112,27 @@ const TextToImage = () => {
 
     const link = document.createElement("a");
     link.href = imageUrl;
-    link.download = `alphagen-image-${Date.now()}.jpg`;
+    link.download = `yt-thumbnail-${Date.now()}.jpg`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   }, [imageUrl]);
 
   // Preview of final prompt with style
-  const finalPrompt = prompt.trim() ? `${prompt.trim()}, ${style} style` : "";
+  const finalPrompt = prompt.trim()
+    ? `${prompt.trim()}, ${style} style YouTube thumbnail`
+    : "";
 
   return (
     <div className="w-full min-h-screen relative overflow-hidden text-white bg-black">
-      {/* Animated Gradient Background */}
+      {/* Animated Gradient Background - Matching text-to-image */}
       <motion.div
         className="absolute inset-0 -z-10 bg-gradient-to-b from-[#14036b] via-[#3825a0] to-[#2a1069]"
         animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
         transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Animated Background Lines - subtle wave effect */}
+      {/* Animated Background Lines - subtle wave effect - Matching text-to-image */}
       <div className="absolute inset-0 -z-5 overflow-hidden opacity-60">
         {/* Horizontal wavy lines */}
         <div className="absolute top-0 left-0 w-full h-full">
@@ -165,10 +168,10 @@ const TextToImage = () => {
         </div>
       </div>
 
-      {/* Radial Gradient Effect */}
+      {/* Radial Gradient Effect - Matching text-to-image */}
       <div className="absolute inset-0 bg-[radial-gradient(circle,#6600cc33_10%,transparent_80%)] animate-pulse z-0" />
 
-      {/* Colored Blobs */}
+      {/* Colored Blobs - Matching text-to-image */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-purple-500 opacity-30 rounded-full blur-[120px]" />
         <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-fuchsia-400 opacity-30 rounded-full blur-[120px]" />
@@ -268,7 +271,7 @@ const TextToImage = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl md:text-5xl font-extrabold text-transparent leading-tight bg-gradient-to-r from-purple-300 via-purple-200 to-blue-400 bg-clip-text drop-shadow-lg"
             >
-              AI-Powered Image Generator
+              YouTube Thumbnail Generator
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: -10 }}
@@ -276,7 +279,7 @@ const TextToImage = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-lg text-gray-300 max-w-2xl mx-auto mt-3"
             >
-              Transform your words into visuals.
+              Create eye-catching thumbnails to boost your video clicks.
             </motion.p>
           </div>
 
@@ -290,23 +293,23 @@ const TextToImage = () => {
               className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-purple-200/30"
             >
               <h2 className="text-2xl font-semibold text-white mb-6">
-                Create Your Image
+                Create Your Thumbnail
               </h2>
 
               {/* Prompt Input */}
               <div className="mb-6">
                 <label className="block text-gray-300 mb-2 font-medium">
-                  Prompt
+                  Video Title or Description
                 </label>
                 <textarea
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  placeholder="Describe your vision..."
-                  className="w-full p-3 text-lg bg-transparent border border-purple-200/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none transition-all min-h-[250px]"
+                  placeholder="Enter your video title or describe what should be in the thumbnail..."
+                  className="w-full p-3 text-lg bg-transparent border border-purple-200/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none transition-all min-h-[150px]"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && e.ctrlKey) {
                       e.preventDefault();
-                      generateImage();
+                      generateThumbnail();
                     }
                   }}
                 />
@@ -315,10 +318,10 @@ const TextToImage = () => {
               {/* Style Selection */}
               <div className="mb-6">
                 <label className="block text-gray-300 mb-2 font-medium">
-                  Style
+                  Thumbnail Style
                 </label>
-                <div className="grid grid-cols-3 gap-2">
-                  {styles.map((styleOption) => (
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  {thumbnailStyles.map((styleOption) => (
                     <button
                       key={styleOption}
                       onClick={() => setStyle(styleOption)}
@@ -338,16 +341,16 @@ const TextToImage = () => {
               {prompt.trim() && (
                 <div className="mb-6 p-3 bg-black/30 rounded-lg border border-purple-300/20">
                   <p className="text-sm text-gray-300 mb-1">
-                    Your final prompt will be:
+                    Your thumbnail will be:
                   </p>
                   <p className="text-white font-medium">{finalPrompt}</p>
                 </div>
               )}
 
-              {/* Action Buttons */}
+              {/* Action Buttons - Matching text-to-image */}
               <div className="flex flex-wrap gap-4 mt-8">
                 <button
-                  onClick={generateImage}
+                  onClick={generateThumbnail}
                   disabled={loading || !prompt.trim()}
                   className="flex-1 min-w-[120px] flex items-center justify-center space-x-2 bg-fuchsia-400 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-purple-500/50 disabled:opacity-50"
                 >
@@ -358,8 +361,8 @@ const TextToImage = () => {
                     </>
                   ) : (
                     <>
-                      <ImageIcon className="mr-1" />
-                      <span>Generate Image</span>
+                      <YouTubeIcon className="mr-1" />
+                      <span>Generate Thumbnail</span>
                     </>
                   )}
                 </button>
@@ -388,36 +391,67 @@ const TextToImage = () => {
               className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-purple-200/30"
             >
               <h2 className="text-2xl font-semibold text-white mb-6">
-                Generated Image
+                Generated Thumbnail
               </h2>
 
-              {/* Image Display Area */}
-              <div className="w-full aspect-square bg-black/40 rounded-lg flex items-center justify-center overflow-hidden border border-purple-500/20 mb-4">
+              {/* Thumbnail Display Area - using 16:9 aspect ratio for YouTube */}
+              <div className="w-full aspect-video bg-black/40 rounded-lg flex items-center justify-center overflow-hidden border border-purple-500/20 mb-4">
                 {loading ? (
                   <div className="flex flex-col items-center justify-center">
                     <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-                    <p className="text-gray-400">
-                      Creating your masterpiece...
-                    </p>
+                    <p className="text-gray-400">Creating your thumbnail...</p>
                   </div>
                 ) : imageUrl ? (
                   <div className="relative w-full h-full">
-                    <PixelatedImage src={imageUrl} alt="Generated image" />
+                    <PixelatedImage src={imageUrl} alt="Generated thumbnail" />
                   </div>
                 ) : (
                   <div className="flex flex-col items-center justify-center text-gray-400">
-                    <ImageIcon
+                    <YouTubeIcon
                       style={{ fontSize: 64 }}
                       className="mb-4 opacity-40"
                     />
                     <p className="text-xl">
-                      Your generated image will appear here
+                      Your YouTube thumbnail will appear here
+                    </p>
+                    <p className="text-sm mt-2 text-gray-500">
+                      Optimal resolution: 1280×720 pixels
                     </p>
                   </div>
                 )}
               </div>
 
-              {/* Actions for generated image */}
+              {/* YouTube Thumbnail Preview Frame */}
+              {imageUrl && (
+                <div className="mb-6 relative">
+                  <div className="bg-[#1f1f1f] rounded-md p-4 mt-2">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-32 h-18 relative rounded-md overflow-hidden">
+                        <img
+                          src={imageUrl}
+                          alt="Thumbnail in video preview"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute bottom-1 right-1 bg-black/70 text-white text-xs px-1 rounded">
+                          10:45
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-white font-medium leading-tight text-sm">
+                          {prompt.length > 60
+                            ? prompt.substring(0, 60) + "..."
+                            : prompt}
+                        </p>
+                        <p className="text-gray-400 text-xs mt-1">
+                          Username • 5.2K views • 3 days ago
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Actions for generated thumbnail - Matching text-to-image */}
               {imageUrl && (
                 <div className="flex flex-wrap gap-3 justify-center">
                   <button
@@ -470,4 +504,4 @@ const TextToImage = () => {
   );
 };
 
-export default TextToImage;
+export default TextToThumbnail;
