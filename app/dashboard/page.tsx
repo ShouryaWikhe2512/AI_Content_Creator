@@ -270,6 +270,38 @@ const Dashboard: React.FC = () => {
 
               <motion.div
                 whileHover={{ scale: 1.03 }}
+                onClick={() => navigateToFeature("/analytics-chatbot")}
+                className="backdrop-blur-xl bg-gradient-to-b from-purple-900/10 to-black/20 border border-purple-500/20 p-8 rounded-xl text-center flex flex-col items-center shadow-[0_4px_20px_rgba(128,90,213,0.15)] cursor-pointer hover:shadow-[0_8px_30px_rgba(147,51,234,0.3)] transition-all duration-300"
+              >
+                <div className="mb-5 text-purple-400">
+                  <QuizIcon style={{ fontSize: "54px" }} />
+                </div>
+                <h3 className="text-2xl font-semibold text-white">
+                  YouTube Analytics Chatbot
+                </h3>
+                <p className="mt-3 text-gray-300">
+                  Ask questions about your YouTube performance.
+                </p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                onClick={() => navigateToFeature("/analytics-report")}
+                className="backdrop-blur-xl bg-gradient-to-b from-purple-900/10 to-black/20 border border-purple-500/20 p-8 rounded-xl text-center flex flex-col items-center shadow-[0_4px_20px_rgba(128,90,213,0.15)] cursor-pointer hover:shadow-[0_8px_30px_rgba(147,51,234,0.3)] transition-all duration-300"
+              >
+                <div className="mb-5 text-purple-400">
+                  <InsertChartIcon style={{ fontSize: "54px" }} />
+                </div>
+                <h3 className="text-2xl font-semibold text-white">
+                  YouTube Analytics Report
+                </h3>
+                <p className="mt-3 text-gray-300">
+                  Generate and download comprehensive PDF reports.
+                </p>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.03 }}
                 className="backdrop-blur-xl bg-gradient-to-b from-purple-900/10 to-black/20 border border-purple-500/20 p-8 rounded-xl text-center flex flex-col items-center shadow-[0_4px_20px_rgba(128,90,213,0.15)] cursor-pointer hover:shadow-[0_8px_30px_rgba(147,51,234,0.3)] transition-all duration-300"
               >
                 <div className="mb-5 text-purple-400">
