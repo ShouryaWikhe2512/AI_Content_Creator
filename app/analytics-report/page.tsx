@@ -30,7 +30,7 @@ const Sidebar = () => {
       <div className="flex-1 overflow-y-auto py-6 px-4">
         <nav className="space-y-2">
           <Link
-            href="/dashboard"
+            href="/Dashboard"
             className="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-purple-500/20 hover:text-white transition-all"
           >
             <div className="w-5 h-5 flex items-center justify-center">
@@ -51,29 +51,6 @@ const Sidebar = () => {
               </svg>
             </div>
             <span>Dashboard</span>
-          </Link>
-
-          <Link
-            href="/analytics"
-            className="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-purple-500/20 hover:text-white transition-all"
-          >
-            <div className="w-5 h-5 flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5"
-              >
-                <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
-                <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9" />
-                <path d="M12 3v6" />
-              </svg>
-            </div>
-            <span>Analytics</span>
           </Link>
 
           <Link

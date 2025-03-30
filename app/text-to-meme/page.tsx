@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+import { Loader2, Edit } from "lucide-react";
 
 // Icons
 import HomeIcon from "@mui/icons-material/Home";
@@ -78,6 +78,19 @@ const TextToMeme = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handleEditInWebEditor = () => {
+    if (memeData?.memeUrl) {
+      // Build query parameters with meme image URL and caption texts
+      const params = new URLSearchParams();
+      params.append("imageUrl", memeData.memeUrl);
+      params.append("topText", memeData.topText || "");
+      params.append("bottomText", memeData.bottomText || "");
+
+      // Navigate to web-editor with parameters
+      router.push(`/web-editor?${params.toString()}`);
+    }
   };
 
   return (
@@ -355,17 +368,24 @@ const TextToMeme = () => {
               {memeData && (
                 <div className="flex flex-wrap gap-3 justify-center">
                   <button
+                    onClick={handleEditInWebEditor}
+                    className="flex items-center space-x-1 bg-purple-600/80 hover:bg-purple-600 text-white py-2 px-4 rounded-lg transition-all duration-200"
+                  >
+                    <Edit className="w-4 h-4 mr-1" />
+                    <span>Edit in Web Editor</span>
+                  </button>
+                  <button
                     onClick={handleDownload}
                     className="flex items-center space-x-1 bg-purple-600/60 hover:bg-purple-600/80 text-white py-2 px-4 rounded-lg transition-all duration-200"
                   >
-                    <GetAppIcon fontSize="small" />
+                    <GetAppIcon fontSize="small" className="mr-1" />
                     <span>Download</span>
                   </button>
                   <button
                     onClick={handleClear}
                     className="flex items-center space-x-1 bg-black/40 hover:bg-black/60 text-white py-2 px-4 rounded-lg transition-all duration-200"
                   >
-                    <RefreshIcon fontSize="small" />
+                    <RefreshIcon fontSize="small" className="mr-1" />
                     <span>Try Another</span>
                   </button>
                 </div>

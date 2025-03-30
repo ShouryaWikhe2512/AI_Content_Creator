@@ -36,7 +36,7 @@ const Sidebar = () => {
       <div className="flex-1 overflow-y-auto py-6 px-4">
         <nav className="space-y-2">
           <Link
-            href="/dashboard"
+            href="/Dashboard"
             className="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-purple-500/20 hover:text-white transition-all"
           >
             <div className="w-5 h-5 flex items-center justify-center">
@@ -74,15 +74,14 @@ const Sidebar = () => {
                 strokeLinejoin="round"
                 className="w-5 h-5"
               >
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
             </div>
             <span>Analytics Chatbot</span>
           </Link>
 
           <Link
-            href="#"
+            href="/analytics-report"
             className="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-purple-500/20 hover:text-white transition-all"
           >
             <div className="w-5 h-5 flex items-center justify-center">
@@ -96,12 +95,14 @@ const Sidebar = () => {
                 strokeLinejoin="round"
                 className="w-5 h-5"
               >
-                <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z" />
-                <path d="m17 4 2 2" />
-                <path d="m19 2 2 2" />
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <path d="M14 2v6h6" />
+                <path d="M16 13H8" />
+                <path d="M16 17H8" />
+                <path d="M10 9H8" />
               </svg>
             </div>
-            <span>Activity</span>
+            <span>Analytics Report</span>
           </Link>
         </nav>
       </div>
