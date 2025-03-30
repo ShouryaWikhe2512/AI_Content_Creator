@@ -699,7 +699,7 @@ const YouTubeAnalytics: React.FC = () => {
 
   // Hardcoded access token
   const STATIC_ACCESS_TOKEN =
-    "ya29.a0AeXRPp5ozfVCjMDcDkHZKKqQwWemWvzYiXwx7dfEYmxi11Q3FOKSkQ9QW7cYaTq7bIBNP45DnxLEopU4T3BeBLJiLgc6EsIot8cpqvVL88Mn_aS9uaWmahTdimb4o3WNDDxSWSefgCMJ1xlgLZ5GnKihh8nMKVuC2ZKcS-TZaCgYKAdMSARMSFQHGX2MigcwTwC1_6vZPpxBcFRVXRA0175";
+    "ya29.a0AeXRPp43AFaiaSyTF_u-uGzXYfOQyd_bxEVu7QkynQvVnRqi9HDNY6hgB0xkkG_hKDyopWrbkng5DZsVDQVmTQY8VTKNkqy76FM_t2zJE3wVxHmeTzFOSUUNqZfDRUjKOOrmePuHRTVAgOF6iF3GduxiBEUzyygdPEHvygNzaCgYKAfMSARMSFQHGX2MiNxhSzzwxGmGJWRZDv-I-5Q0175";
 
   // State definitions
   const [isAuthenticated, setIsAuthenticated] = useState(true);

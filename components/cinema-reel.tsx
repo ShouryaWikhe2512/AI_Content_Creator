@@ -315,11 +315,17 @@ import { motion, useAnimationControls } from "framer-motion";
 import Image from "next/image";
 
 const images = [
-  "/IMG-20230831-WA0024.jpg",
-  "/placeholder.svg?height=300&width=200",
-  "/placeholder.svg?height=300&width=200",
-  "/placeholder.svg?height=300&width=200",
-  "/placeholder.svg?height=300&width=200",
+  "/Screenshot 2025-03-29 184320.png",
+  "/Screenshot 2025-03-29 184340.png",
+  "/Screenshot 2025-03-29 184410.png",
+  "/Screenshot 2025-03-29 184420.png",
+  "/Screenshot 2025-03-29 184427.png",
+  "/Screenshot 2025-03-29 184441.png",
+  "/Screenshot 2025-03-29 193954.png",
+  "/Screenshot 2025-03-29 194019.png",
+  "/Screenshot 2025-03-29 194035.png",
+  "/Screenshot 2025-03-29 194043.png",
+  "/Screenshot 2025-03-29 194050.png",
 ];
 
 export default function CinemaReel() {

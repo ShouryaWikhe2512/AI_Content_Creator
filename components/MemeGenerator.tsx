@@ -97,25 +97,26 @@ import { Sparkles } from "lucide-react";
 const memes = [
   {
     id: 1,
-    src: "/IMG-20230831-WA0024.jpg",
+    src: "/meme.jpg",
     alt: "AI Meme 1",
     caption: "When the AI finally understands your prompt...",
   },
   {
     id: 2,
-    src: "/IMG-20230831-WA0024.jpg",
+    src: "/meme4.jpg",
     alt: "AI Meme 2",
     caption: "Me waiting for my AI to generate the perfect image...",
   },
   {
     id: 3,
-    src: "/IMG-20230831-WA0024.jpg",
+    src: "/meme.jpg",
     alt: "AI Meme 3",
     caption: "AI: I made exactly what you asked for. Me: Did you though?",
   },
   {
     id: 4,
-    src: "/IMG-20230831-WA0024.jpg",
+    src: "/meme4.jpg",
+
     alt: "AI Meme 4",
     caption: "When your AI generates something better than expected...",
   },
@@ -206,7 +207,7 @@ export default function MemeGenerator() {
           return (
             <motion.div
               key={i}
-              className="absolute top-1/2 left-1/2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500"
+              className="absolute top-1/2 left-1/2 rounded-full bg-gradient-to-b from-[#17002f] via-[#1a002f] to-[#080808]"
               style={{ width: size, height: size }}
               initial={{ x: 0, y: 0, opacity: 1 }}
               animate={{
@@ -227,14 +228,14 @@ export default function MemeGenerator() {
     );
   }
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 md:px-12  bg-gradient-to-r from-black via-blue-900 to-black">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center px-6 md:px-12 ">
       {/* Content Section */}
       <div className="w-full flex flex-col md:flex-row items-center justify-center ">
         {/* Left Section - AI Script and Button */}
-        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-6 ">
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-6 min-h-[16rem] ">
           {/* AI Script Box */}
           <motion.div
-            className="w-full p-4 bg-gray-800 rounded-lg border-2 border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+            className="w-full p-4 bg-gray-800 rounded-lg border-2 border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]  min-h-[20rem]"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -336,10 +337,10 @@ export default function MemeGenerator() {
       </div>
 
       {/* Meme Generator Title - Styled for Impact */}
-      <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-lime-600 via-cyan-500 to-lime-600 text-4xl md:text-5xl font-extrabold mt-12 text-center drop-shadow-[0_0_15px_rgba(139,92,246,0.8)] animate-pulse">
+      <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-[#933bf0] via-[#1255d1] to-[#860ee8]  text-5xl md:text-5xl font-extrabold mt-7 text-center drop-shadow-[0_0_15px_rgba(139,92,246,0.8)] ">
         MemeGen 🔥
       </h1>
-      <p className="text-gray-300 text-lg md:text-xl text-center mt-2">
+      <p className="text-gray-300 text-xl md:text-xl text-center mt-2">
         AI-powered meme magic, one click away! 🚀
       </p>
     </div>

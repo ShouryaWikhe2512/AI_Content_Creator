@@ -37,6 +37,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # AI_Content_Creator
 
-This is version 1.7
+This is version 2.4
+
 # AI_Content_Creator_1.2
+
 # AI_Content_Creator_1.2

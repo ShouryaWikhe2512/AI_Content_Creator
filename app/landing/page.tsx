@@ -1,7 +1,146 @@
+// "use client";
+// import AiEducationSection from "@/components/ai-education-section";
+// import DraggableText from "@/components/DraggableText";
+// import Header from "@/components/Header";
+// import HomeComponent from "@/components/Home";
+// import MemeGenerator from "@/components/MemeGenerator";
+// import Navbar from "@/components/navbar";
+// import ReelSyncUploader from "@/components/ReelSyncUploader";
+// import RobotScrollScene from "@/components/robot-scroll-screen";
+// import EnhancedScriptToVideo from "@/components/ScriptToVideoSection";
+// import ScriptToVideoSection from "@/components/ScriptToVideoSection";
+// import ThumbnailGenerator from "@/components/thumbnail-generator";
+// import EnhancedVideoCarousel from "@/components/video-carousel";
+// import VideoCarousel from "@/components/videoCarousel";
+// import { use } from "react";
+
+// const Page = () => {
+//   return (
+//     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-950 via-gray-500 to-black text-white animate-fadeIn">
+//       {/* Navbar Space */}
+//       {/* <header className="h-20 bg-gradient-to-r from-blue-900/80 via-blue-600/80 to-blue-900/80 backdrop-blur-lg shadow-2xl rounded-b-3xl border-b border-blue-500/50 flex items-center justify-center px-10 animate-fadeIn">
+//         <div className="w-full max-w-6xl flex justify-center">
+//           <Navbar />
+//         </div>
+//       </header> */}
+//       {/* <RobotScrollScene> */}
+//       <Header />
+//       <HomeComponent />
+
+//       <div className="text-7xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lime-500 via-cyan-400 to-green-700 text-center my-16 animate-fadeIn drop-shadow-lg mb-5 mt-20">
+//         <DraggableText text="AI-Powered!  " />
+//       </div>
+//       <br />
+//       <div className="text-6xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lime-500 via-cyan-400 to-green-700 text-center my-18 animate-fadeIn drop-shadow-lg mt-8 ">
+//         Creativity: Edit, Generate & Analyze!
+//       </div>
+//       <div className="text-1xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-lime-500 via-cyan-400 to-green-700 text-center -mt-13 animate-fadeIn drop-shadow-lg mb-1">
+//         A one stop solution for everything.
+//       </div>
+
+//       {/* Video Carousel Placeholder */}
+
+//       <section
+//         className="relative w-[90%] max-w-6xl h-[650px] flex items-center justify-center mr-40 my-20 animate-fadeInUp rounded-3xl mx-auto overflow-hidden shadow-[0px_0px_40px_rgba(0,255,255,0.3)] border border-lime-500 backdrop-blur-lg p-15
+//   transition-all duration-500 hover:shadow-[0px_0px_60px_rgba(0,255,255,0.5)] scale-100 hover:scale-[1.02]"
+//       >
+//         {/* Inner Glow & Radial Light */}
+//         <div
+//           className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.15),_transparent)]
+//        before:absolute before:inset-0 before:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent)]"
+//         >
+//           {/* Particle Effect */}{" "}
+//           <div className="absolute inset-0 pointer-events-none">
+//             {/* Video Carousel */}
+//             <EnhancedVideoCarousel />;
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Features Section */}
+//       <main className="flex flex-col items-center w-full min-h-screen bg-black px-6 py-14">
+//         {/* Full-width ScriptToVideoSection */}
+//         <div className="w-full">
+//           <main className="min-h-screen bg-gradient-to-br from-black via-blue-900 to-black py-12">
+//             <div className="container mx-auto px-4">
+//               <EnhancedScriptToVideo
+//                 script="Generate a futuristic cityscape with flying cars, holographic billboards, and neon lights reflecting off glass skyscrapers. The scene should be set at night with a cyberpunk aesthetic."
+//                 videoSrc="/videos/hero.mp4"
+//                 staticVideoSrc="/videos/frame.mp4"
+//               />
+//             </div>
+//           </main>
+//           <ReelSyncUploader />
+//           <MemeGenerator />
+//           <ThumbnailGenerator />
+//           <AiEducationSection />
+//         </div>
+
+//         {/* Features Section */}
+//         {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
+//           <div className="p-10 bg-gray-800 rounded-lg shadow-md text-center transform transition-all duration-300 hover:scale-105 md:col-span-2 mx-auto">
+//             <h2 className="text-4xl font-bold mb-6">
+//               📸 Create Thumbnail with Text
+//             </h2>
+//             <p className="text-gray-400 mb-6">
+//               Generate eye-catching thumbnails with custom text in seconds.
+//             </p>
+//             <img
+//               src="/images/thumbnail-example.jpg"
+//               alt="Thumbnail Example"
+//               className="w-full h-64 object-cover rounded-md mb-4"
+//             />
+//           </div>
+
+//           <div className="p-8 bg-gray-800 rounded-lg shadow-md text-center transform transition-all duration-300 hover:scale-105">
+//             <h2 className="text-3xl font-bold mb-4">🎬 Video from Script</h2>
+//             <p className="text-gray-400 mb-6">
+//               Upload a script, and we'll automatically generate a video for you.
+//             </p>
+//             <video className="w-full h-48 rounded-md mb-4" controls>
+//               <source src="/videos/sample-script-video.mp4" type="video/mp4" />
+//             </video>
+//           </div>
+
+//           <div className="p-12 bg-gray-800 rounded-lg shadow-md text-center transform transition-all duration-300 hover:scale-105 md:col-span-2 mx-auto">
+//             <h2 className="text-4xl font-bold mb-6">🎵 Upload Music & Clips</h2>
+//             <p className="text-gray-400 mb-6">
+//               Enhance your videos by adding background music and clips.
+//             </p>
+//             <img
+//               src="/images/music-upload.jpg"
+//               alt="Music Upload"
+//               className="w-full h-56 object-cover rounded-md mb-4"
+//             />
+//           </div>
+
+//           <div className="p-8 bg-gray-800 rounded-lg shadow-md text-center transform transition-all duration-300 hover:scale-105 md:max-w-lg mx-auto">
+//             <h2 className="text-3xl font-bold mb-4">
+//               😂 Instant Meme Generator
+//             </h2>
+//             <p className="text-gray-400 mb-6">
+//               Create funny memes instantly with AI-powered tools.
+//             </p>
+//             <img
+//               src="/images/meme-generator.jpg"
+//               alt="Meme Generator"
+//               className="w-full h-48 object-cover rounded-md mb-4"
+//             />
+//           </div>
+//         </div> */}
+//       </main>
+//       {/* </RobotScrollScene> */}
+//     </div>
+//   );
+// };
+
+// export default Page;
+
 "use client";
 import AiEducationSection from "@/components/ai-education-section";
 import DraggableText from "@/components/DraggableText";
 import Header from "@/components/Header";
+import HomeComponent from "@/components/Home";
 import MemeGenerator from "@/components/MemeGenerator";
 import Navbar from "@/components/navbar";
 import ReelSyncUploader from "@/components/ReelSyncUploader";
@@ -11,204 +150,103 @@ import ScriptToVideoSection from "@/components/ScriptToVideoSection";
 import ThumbnailGenerator from "@/components/thumbnail-generator";
 import EnhancedVideoCarousel from "@/components/video-carousel";
 import VideoCarousel from "@/components/videoCarousel";
-import { useEffect, useState } from "react";
+import { use } from "react";
 
 const Page = () => {
-  // State to track mouse position for subtle background effect
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  // Effect for the parallax mouse movement
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX / window.innerWidth,
-        y: e.clientY / window.innerHeight,
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Futuristic animated background */}
-      <div
-        className="fixed inset-0 z-0"
-        style={{
-          background: `radial-gradient(circle at ${mousePosition.x * 100}% ${
-            mousePosition.y * 100
-          }%, rgba(76, 29, 149, 0.15), rgba(17, 24, 39, 0))`,
-          transition: "background 0.5s ease-out",
-        }}
+    <div
+      className="flex flex-col min-h-screen bg-gradient-to-b from-[#17002f] via-[#1a002f] to-[#080808]
+text-white animate-fadeIn overflow-y-scroll "
+    >
+      {/* Navbar Space */}
+      {/* <header className="h-20 bg-gradient-to-r from-blue-900/80 via-blue-600/80 to-blue-900/80 backdrop-blur-lg shadow-2xl rounded-b-3xl border-b border-blue-500/50 flex items-center justify-center px-10 animate-fadeIn">
+       <div className="w-full max-w-6xl flex justify-center">
+@@ -29,238 +28,84 @@ const Page = () => {
+     </header> */}
+      {/* <RobotScrollScene> */}
+      <Header />
+      <HomeComponent />
+
+      {/* Video Carousel Placeholder */}
+      <section
+        className="relative w-[90%] max-w-6xl h-[650px] flex items-center justify-center mx-auto my-20 animate-fadeInUp 
+        rounded-3xl overflow-hidden shadow-[0px_0px_40px_rgba(138,43,226,0.5)] border border-purple-500 
+        backdrop-blur-lg p-15 transition-all duration-500 
+        hover:shadow-[0px_0px_70px_rgba(138,43,226,0.8)] scale-100 hover:scale-[1.03]"
       >
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-slate-900 to-black"></div>
-
-        {/* Ambient glow */}
-        <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_top,_rgba(93,63,211,0.2),transparent_70%)]"></div>
-
-        {/* Grid overlay with animated pulse */}
+        {/* Inner Glow & Radial Light */}
         <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `linear-gradient(rgba(66, 153, 225, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(66, 153, 225, 0.1) 1px, transparent 1px)`,
-            backgroundSize: "100px 100px",
-            animation: "pulse 15s ease-in-out infinite",
-          }}
-        ></div>
-
-        {/* Floating particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-blue-500/10"
-              style={{
-                width: Math.random() * 4 + 1 + "px",
-                height: Math.random() * 4 + 1 + "px",
-                top: Math.random() * 100 + "%",
-                left: Math.random() * 100 + "%",
-                animation: `float ${Math.random() * 10 + 20}s linear infinite`,
-                opacity: Math.random() * 0.5,
-                boxShadow: "0 0 10px rgba(59, 130, 246, 0.3)",
-              }}
-            />
-          ))}
+          className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(138,43,226,0.2),_transparent)] 
+before:absolute before:inset-0 before:bg-[linear-gradient(180deg,rgba(138,43,226,0.15),transparent)]"
+        >
+          {/* Particle Effect */}{" "}
+          <div className="absolute inset-0 pointer-events-none">
+            {/* Video Carousel */}
+            <EnhancedVideoCarousel />
+          </div>
         </div>
+      </section>
 
-        {/* Bottom glow */}
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-purple-900/10 to-transparent"></div>
-      </div>
-
-      {/* Content wrapper with subtle parallax effect */}
-      <div
-        className="relative z-10 flex flex-col min-h-screen text-white"
-        style={{
-          transform: `translate(${mousePosition.x * -10}px, ${
-            mousePosition.y * -10
-          }px)`,
-          transition: "transform 0.2s ease-out",
-        }}
-      >
-        <Header />
-
-        {/* Main content with hover effects */}
-        <div className="container mx-auto px-4 pt-20">
-          <div className="text-7xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 text-center animate-fadeIn drop-shadow-lg mb-5">
-            <DraggableText text="AI-Powered!  " />
-          </div>
-
-          <div className="text-6xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 text-center animate-fadeIn drop-shadow-lg mt-8 mb-4">
-            Creativity: Edit, Generate & Analyze!
-          </div>
-
-          <div className="text-xl md:text-2xl font-semibold text-blue-100/80 text-center animate-fadeIn mb-20">
-            A one stop solution for everything
-          </div>
-
-          {/* Card with advanced hover effect */}
-          <section className="group relative max-w-6xl h-[650px] mx-auto mb-20 rounded-2xl overflow-hidden">
-            {/* Card backdrop with hover effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 to-black/90 backdrop-blur-sm rounded-2xl border border-slate-800/50 transition-all duration-500 group-hover:border-blue-500/30 group-hover:bg-slate-900/80">
-              {/* Inner highlight effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.1),transparent_60%)]"></div>
-
-              {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-500/20 to-transparent rounded-bl-full opacity-50 group-hover:opacity-80 transition-opacity"></div>
-            </div>
-
-            {/* Card content */}
-            <div className="relative z-10 p-8 h-full">
-              <EnhancedVideoCarousel />
-            </div>
-
-            {/* Animated border glow on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 border border-blue-500/20 rounded-2xl"></div>
-          </section>
-
-          {/* Main content sections */}
-          <main className="relative z-10 flex flex-col items-center w-full min-h-screen py-14">
-            <div className="w-full space-y-32">
-              <div className="relative">
-                <main className="min-h-screen py-12">
-                  <div className="container mx-auto px-4">
-                    <EnhancedScriptToVideo
-                      script="Generate a futuristic cityscape with flying cars, holographic billboards, and neon lights reflecting off glass skyscrapers. The scene should be set at night with a cyberpunk aesthetic."
-                      videoSrc="/videos/hero.mp4"
-                      staticVideoSrc="/videos/frame.mp4"
-                    />
-                  </div>
-                </main>
-              </div>
-
-              <div className="relative hover:scale-[1.02] transition-transform duration-700">
-                <ReelSyncUploader />
-              </div>
-
-              <div className="relative hover:scale-[1.02] transition-transform duration-700">
-                <MemeGenerator />
-              </div>
-
-              <div className="relative hover:scale-[1.02] transition-transform duration-700">
-                <ThumbnailGenerator />
-              </div>
-
-              <div className="relative hover:scale-[1.02] transition-transform duration-700">
-                <AiEducationSection />
-              </div>
+      {/* Features Section */}
+      <main className="flex flex-col items-center w-full min-h-screen ">
+        {/* Full-width ScriptToVideoSection */}
+        <div className="w-full">
+          <main className="min-h-screen bg-gradient-to-b from-[#17002f] via-[#1a002f] to-[#1a002f] ">
+            <div className="container mx-auto ">
+              <EnhancedScriptToVideo
+                script="Generate a short video of an astronaut dancing on the moon. The scene should feature a realistic lunar surface with subtle craters and textured regolith, while Earth looms in the distant background. The astronaut, wearing a sleek, futuristic space suit with a reflective visor, performs energetic, gravity-defying dance moves."
+                videoSrc="/videos/An_awe-inspiring_view_of_an_astronaut_walking_on_t_6cfd78f7-3a6a-43cf-804a-a10cfc918d25.mp4"
+                staticVideoSrc="/videos/close_view_of_astronaut_floating_in_space_f75ae1dc-92c1-4460-bd6e-987e9d3d3fca.mp4"
+              />
             </div>
           </main>
+          <ReelSyncUploader />
+          <MemeGenerator />
+          <ThumbnailGenerator />
+          <AiEducationSection />
         </div>
-      </div>
 
-      {/* Global animations */}
-      <style jsx global>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0) translateX(0);
-          }
-          25% {
-            transform: translateY(-30px) translateX(15px);
-          }
-          50% {
-            transform: translateY(-15px) translateX(30px);
-          }
-          75% {
-            transform: translateY(-40px) translateX(15px);
-          }
-        }
-
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 0.1;
-            background-size: 100px 100px;
-          }
-          50% {
-            opacity: 0.15;
-            background-size: 110px 110px;
-          }
-        }
+        {/* Features Section */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
+          <div className="p-10 bg-gray-800 rounded-lg shadow-md text-center transform transition-all duration-300 hover:scale-105 md:col-span-2 mx-auto">
+            <h2 className="text-4xl font-bold mb-6">
+              📸 Create Thumbnail with Text
+            </h2>
+            <p className="text-gray-400 mb-6">
+              Generate eye-catching thumbnails with custom text in seconds.
+            </p>
+            <img
+              src="/images/thumbnail-example.jpg"
+              alt="Thumbnail Example"
+              className="w-full h-64 object-cover rounded-md mb-4"
+            />
+          </div>
 
         .animate-fadeIn {
           animation: fadeIn 1s ease-in-out;
         }
+          <div className="p-8 bg-gray-800 rounded-lg shadow-md text-center transform transition-all duration-300 hover:scale-105">
+            <h2 className="text-3xl font-bold mb-4">🎬 Video from Script</h2>
+            <p className="text-gray-400 mb-6">
+              Upload a script, and we'll automatically generate a video for you.
+            </p>
+            <video className="w-full h-48 rounded-md mb-4" controls>
+              <source src="/videos/sample-script-video.mp4" type="video/mp4" />
+            </video>
+          </div>
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+
+         <div className="p-12 bg-gray-800 rounded-lg shadow-md text-center transform transition-all duration-300 hover:scale-105 md:col-span-2 mx-auto">
+           <h2 className="text-4xl font-bold mb-6">🎵 Upload Music & Clips</h2>
+           <p className="text-gray-400 mb-6">
+@@ -286,22 +131,9 @@ const Page = () => {
+             className="w-full h-48 object-cover rounded-md mb-4"
+           />
+         </div>
+        </div>
+        </div> */}
+      </main>
+      {/* </RobotScrollScene> */}
     </div>
   );
 };

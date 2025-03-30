@@ -164,7 +164,7 @@ export default function AiEducationSection() {
   }, [currentState]);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-gray-900 via-[#0f1729] to-[#0f0f23] text-white">
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#17002f] via-[#1a002f] to-[#080808] text-white">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
       <div className="absolute top-20 left-1/4 w-72 h-72 bg-purple-600/30 rounded-full filter blur-[100px] animate-pulse-slow"></div>

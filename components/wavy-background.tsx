@@ -27,7 +27,7 @@ export default function WavyBackground() {
       amplitude: canvas.height * (0.015 + i * 0.02), // Lower amplitude
       frequency: 0.002 + i * 0.0004, // Different frequencies
       phase: (i * Math.PI) / 4, // Phase offset
-      speed: 0.0006 + i * 0.00015, // Adjusted speeds
+      speed: 0.009 + i * 0.00015, // Adjusted speeds
       color: `rgba(147, 51, 234, ${0.7 + i * 0.07})`, // Brighter colors
       lineWidth: 3 + i * 0.3, // Varying thickness
       yPosition: canvas.height * (0.25 + i * 0.15),
