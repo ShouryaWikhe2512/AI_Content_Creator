@@ -30,11 +30,6 @@ import SchoolIcon from "@mui/icons-material/School";
 import {
   LineChart,
   Line,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,

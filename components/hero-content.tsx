@@ -53,9 +53,6 @@ export default function HeroContent() {
       </p>
 
       <div ref={buttonRef} className="mt-10">
-        <Button className="rounded-full bg-purple-600 px-8 py-6 text-lg hover:bg-purple-700">
-          Start creating
-        </Button>
         <Link href="/dashboard">
           <Button className="rounded-full bg-purple-600 px-8 py-6 text-lg hover:bg-purple-700">
             Start creating
