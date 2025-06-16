@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 export default function HeroContent() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
@@ -56,6 +56,11 @@ export default function HeroContent() {
         <Button className="rounded-full bg-purple-600 px-8 py-6 text-lg hover:bg-purple-700">
           Start creating
         </Button>
+        <Link href="/dashboard">
+          <Button className="rounded-full bg-purple-600 px-8 py-6 text-lg hover:bg-purple-700">
+            Start creating
+          </Button>
+        </Link>
       </div>
     </div>
   );
